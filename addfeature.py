@@ -1,7 +1,7 @@
 from dataset import Dataset
 from sentiment import SentimentAnalysis
 
-dts = Dataset('/media/daniel/Storage/Documentos/Unifor/IA/weka_data/IMDB_1')
+dts = Dataset('/media/daniel/Storage/Documentos/Unifor/IA/weka_data/IMDB_1', r'(.*),(neg|pos),(neg|pos)')
 
 sa = SentimentAnalysis()
 

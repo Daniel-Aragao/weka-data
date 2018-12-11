@@ -1,13 +1,13 @@
 from sentiment import SentimentAnalysis
 import re
 
-compiled_pattern = re.compile(r'(.*),(neg|pos),(neg|pos)')
-
 class Dataset:
-    def __init__(self, file_name):
+    def __init__(self, file_name, data_pattern):
         self.lines = []
         self.attributes = []
         self.dataset_relation = ''
+
+        self.compiled_pattern = re.compile(data_pattern)
 
         self.added_features = 0
 
@@ -56,7 +56,7 @@ class Dataset:
                     header = False
 
             else:
-                regex_result = compiled_pattern.match(line)
+                regex_result = self.compiled_pattern.match(line)
 
                 if regex_result:
                     new_line = [item for item in regex_result.groups()]
