@@ -13,6 +13,16 @@ class Dataset:
 
         self.file_name = file_name
         self.load_file(file_name)
+    
+    def find_by_feature_value(self, feature, value):
+        if feature in self.attributes:
+            index = self.attributes.index(feature)
+
+            return [line for line in self.lines if line[index] == value]
+            
+        else:
+            return []
+        
 
     def add_feature(self,attribute_name, attribute_type, delegate):
         self.attributes.append((attribute_name, attribute_type))
@@ -65,10 +75,10 @@ class Dataset:
         arff_file.close()
 
 
-if __name__ == "__main__":
-    import sys
+# if __name__ == "__main__":
+#     import sys
 
-    if len(sys.argv) > 1:
-        file_name = sys.argv[1]
+#     if len(sys.argv) > 1:
+#         file_name = sys.argv[1]
 
-        Dataset(file_name)
+#         Dataset(file_name)

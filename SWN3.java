@@ -9,7 +9,7 @@ public class SWN3 {
 	public static void main(String[] args) throws IOException{
 		SWN3 sentiWord = new SWN3("./SentiWordNet_3.0.0_20130122.txt");
 
-		double a = sentiWord.extract("not showing characteristics of life");
+		double a = sentiWord.extract("shadow");
 		System.out.printf("%.2f", a);
 	}
 
