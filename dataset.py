@@ -15,10 +15,11 @@ class Dataset:
         self.load_file(file_name)
     
     def find_by_feature_value(self, feature, value):
-        if feature in self.attributes:
-            index = self.attributes.index(feature)
+        attr_names = [attr[0] for attr in self.attributes]
+        if feature in attr_names:
+            index = attr_names.index(feature)
 
-            return [line for line in self.lines if line[index] == value]
+            return [line for line in self.lines if str(line[index]).find(value) >= 0]
             
         else:
             return []
@@ -71,6 +72,8 @@ class Dataset:
                 if regex_result:
                     new_line = [item for item in regex_result.groups()]
                     self.lines.append(new_line)
+                else:
+                    print(line)
 
         arff_file.close()
 

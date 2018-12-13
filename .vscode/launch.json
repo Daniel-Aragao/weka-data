@@ -1,6 +1,13 @@
 {
     "configurations": [
         {
+            "name": "Python: Terminal (integrated)",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
             "type": "java",
             "name": "CodeLens (Launch) - SWN3",
             "request": "launch",
